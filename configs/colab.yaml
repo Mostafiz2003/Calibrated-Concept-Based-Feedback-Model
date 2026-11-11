@@ -1,0 +1,32 @@
+# ==============================================================================
+# Google Colab & Google Drive Automated Training Configuration
+# Calibrated Concept-Based Feedback Model (CSE 4385)
+# ==============================================================================
+
+colab:
+  # Base directory in Google Drive where persistent artifacts are mirrored
+  drive_mount_point: "/content/drive"
+  drive_project_root: "/content/drive/MyDrive/CalibratedBirdRecognition"
+
+  # Fast local NVMe staging directories inside Colab instance
+  local_staging:
+    dataset_dir: "/content/data/CUB_200_2011"
+    checkpoints_dir: "/content/checkpoints"
+    outputs_dir: "/content/outputs"
+
+  # Hardware and runtime optimization settings
+  hardware:
+    require_gpu: true
+    fallback_allow_cpu: false
+    use_amp: true                    # Automatic Mixed Precision (fp16 on T4 / bf16 on A100)
+    gradient_accumulation_steps: 1
+    max_grad_norm: 1.0
+    num_workers: 2                   # Safe worker count for Colab Linux instances
+    pin_memory: true
+
+  # Default training parameters for Colab runs
+  training:
+    default_batch_size: 32
+    default_epochs: 40
+    seed: 42
+

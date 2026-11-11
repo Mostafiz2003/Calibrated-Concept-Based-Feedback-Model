@@ -1,0 +1,25 @@
+# ==============================================================================
+# Model Configuration: ResNet-50 + CBAM Attention (Experiment ID: E3)
+# ==============================================================================
+
+model:
+  name: "resnet50_cbam"
+  experiment_id: "E3"
+  description: "ResNet-50 with CBAM attention at C2-C5 and dual prediction heads"
+  num_classes: 200
+  num_concepts: 112
+  feature_dim: 2048
+  pretrained: true
+  use_cbam: true
+  use_fpn: false
+
+training:
+  batch_size: 32
+  num_epochs: 40
+  backbone_lr: 0.0001
+  head_lr: 0.001
+  weight_decay: 0.0001
+  lambda_species: 1.0
+  lambda_concept: 0.2
+  early_stopping_patience: 10
+

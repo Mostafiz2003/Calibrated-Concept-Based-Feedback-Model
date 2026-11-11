@@ -1,0 +1,686 @@
+{
+  "metadata": {
+    "project": "Calibrated Concept-Based Feedback Model (CSE 4385)",
+    "description": "Authoritative canonical 112-concept CUB benchmark mapping from Koh et al. (ICML 2020)",
+    "source_repository": "https://github.com/yewsiang/ConceptBottleneck",
+    "source_file": "https://github.com/yewsiang/ConceptBottleneck/blob/master/CUB/generate_new_data.py",
+    "paper_citation": "Koh, P. W., Nguyen, T., Tang, Y. S., Mussmann, S., Pierson, E., Kim, B., & Liang, P. (2020). Concept Bottleneck Models. Proceedings of the 37th International Conference on Machine Learning (ICML).",
+    "num_concepts": 112,
+    "indexing_convention_note": "concept_index is 0..111 in the concept bottleneck vector. zero_based_column_index is 0..311 corresponding to Python array column indexing in Koh et al. cub_attribute_id is 1..312 corresponding to the official 1-based ID in CUB_200_2011/attributes.txt (cub_attribute_id = zero_based_column_index + 1).",
+    "selection_procedure_summary": "Derived from the canonical benchmark of Koh et al. (2020) and reused in Shin et al. (2023), Vandenhirtz et al. (2024), and Kalampalikis et al. (2026). Filters raw 312 attributes to 112 active concepts based on class-level presence across species."
+  },
+  "concepts": [
+    {
+      "concept_index": 0,
+      "zero_based_column_index": 1,
+      "cub_attribute_id": 2,
+      "attribute_name": "has_bill_shape::dagger"
+    },
+    {
+      "concept_index": 1,
+      "zero_based_column_index": 4,
+      "cub_attribute_id": 5,
+      "attribute_name": "has_bill_shape::hooked_seabird"
+    },
+    {
+      "concept_index": 2,
+      "zero_based_column_index": 6,
+      "cub_attribute_id": 7,
+      "attribute_name": "has_bill_shape::all-purpose"
+    },
+    {
+      "concept_index": 3,
+      "zero_based_column_index": 7,
+      "cub_attribute_id": 8,
+      "attribute_name": "has_bill_shape::cone"
+    },
+    {
+      "concept_index": 4,
+      "zero_based_column_index": 10,
+      "cub_attribute_id": 11,
+      "attribute_name": "has_wing_color::brown"
+    },
+    {
+      "concept_index": 5,
+      "zero_based_column_index": 14,
+      "cub_attribute_id": 15,
+      "attribute_name": "has_wing_color::grey"
+    },
+    {
+      "concept_index": 6,
+      "zero_based_column_index": 15,
+      "cub_attribute_id": 16,
+      "attribute_name": "has_wing_color::yellow"
+    },
+    {
+      "concept_index": 7,
+      "zero_based_column_index": 20,
+      "cub_attribute_id": 21,
+      "attribute_name": "has_wing_color::black"
+    },
+    {
+      "concept_index": 8,
+      "zero_based_column_index": 21,
+      "cub_attribute_id": 22,
+      "attribute_name": "has_wing_color::white"
+    },
+    {
+      "concept_index": 9,
+      "zero_based_column_index": 23,
+      "cub_attribute_id": 24,
+      "attribute_name": "has_wing_color::buff"
+    },
+    {
+      "concept_index": 10,
+      "zero_based_column_index": 25,
+      "cub_attribute_id": 26,
+      "attribute_name": "has_upperparts_color::brown"
+    },
+    {
+      "concept_index": 11,
+      "zero_based_column_index": 29,
+      "cub_attribute_id": 30,
+      "attribute_name": "has_upperparts_color::grey"
+    },
+    {
+      "concept_index": 12,
+      "zero_based_column_index": 30,
+      "cub_attribute_id": 31,
+      "attribute_name": "has_upperparts_color::yellow"
+    },
+    {
+      "concept_index": 13,
+      "zero_based_column_index": 35,
+      "cub_attribute_id": 36,
+      "attribute_name": "has_upperparts_color::black"
+    },
+    {
+      "concept_index": 14,
+      "zero_based_column_index": 36,
+      "cub_attribute_id": 37,
+      "attribute_name": "has_upperparts_color::white"
+    },
+    {
+      "concept_index": 15,
+      "zero_based_column_index": 38,
+      "cub_attribute_id": 39,
+      "attribute_name": "has_upperparts_color::buff"
+    },
+    {
+      "concept_index": 16,
+      "zero_based_column_index": 40,
+      "cub_attribute_id": 41,
+      "attribute_name": "has_underparts_color::brown"
+    },
+    {
+      "concept_index": 17,
+      "zero_based_column_index": 44,
+      "cub_attribute_id": 45,
+      "attribute_name": "has_underparts_color::grey"
+    },
+    {
+      "concept_index": 18,
+      "zero_based_column_index": 45,
+      "cub_attribute_id": 46,
+      "attribute_name": "has_underparts_color::yellow"
+    },
+    {
+      "concept_index": 19,
+      "zero_based_column_index": 50,
+      "cub_attribute_id": 51,
+      "attribute_name": "has_underparts_color::black"
+    },
+    {
+      "concept_index": 20,
+      "zero_based_column_index": 51,
+      "cub_attribute_id": 52,
+      "attribute_name": "has_underparts_color::white"
+    },
+    {
+      "concept_index": 21,
+      "zero_based_column_index": 53,
+      "cub_attribute_id": 54,
+      "attribute_name": "has_underparts_color::buff"
+    },
+    {
+      "concept_index": 22,
+      "zero_based_column_index": 54,
+      "cub_attribute_id": 55,
+      "attribute_name": "has_breast_pattern::solid"
+    },
+    {
+      "concept_index": 23,
+      "zero_based_column_index": 56,
+      "cub_attribute_id": 57,
+      "attribute_name": "has_breast_pattern::striped"
+    },
+    {
+      "concept_index": 24,
+      "zero_based_column_index": 57,
+      "cub_attribute_id": 58,
+      "attribute_name": "has_breast_pattern::multi-colored"
+    },
+    {
+      "concept_index": 25,
+      "zero_based_column_index": 59,
+      "cub_attribute_id": 60,
+      "attribute_name": "has_back_color::brown"
+    },
+    {
+      "concept_index": 26,
+      "zero_based_column_index": 63,
+      "cub_attribute_id": 64,
+      "attribute_name": "has_back_color::grey"
+    },
+    {
+      "concept_index": 27,
+      "zero_based_column_index": 64,
+      "cub_attribute_id": 65,
+      "attribute_name": "has_back_color::yellow"
+    },
+    {
+      "concept_index": 28,
+      "zero_based_column_index": 69,
+      "cub_attribute_id": 70,
+      "attribute_name": "has_back_color::black"
+    },
+    {
+      "concept_index": 29,
+      "zero_based_column_index": 70,
+      "cub_attribute_id": 71,
+      "attribute_name": "has_back_color::white"
+    },
+    {
+      "concept_index": 30,
+      "zero_based_column_index": 72,
+      "cub_attribute_id": 73,
+      "attribute_name": "has_back_color::buff"
+    },
+    {
+      "concept_index": 31,
+      "zero_based_column_index": 75,
+      "cub_attribute_id": 76,
+      "attribute_name": "has_tail_shape::notched_tail"
+    },
+    {
+      "concept_index": 32,
+      "zero_based_column_index": 80,
+      "cub_attribute_id": 81,
+      "attribute_name": "has_upper_tail_color::brown"
+    },
+    {
+      "concept_index": 33,
+      "zero_based_column_index": 84,
+      "cub_attribute_id": 85,
+      "attribute_name": "has_upper_tail_color::grey"
+    },
+    {
+      "concept_index": 34,
+      "zero_based_column_index": 90,
+      "cub_attribute_id": 91,
+      "attribute_name": "has_upper_tail_color::black"
+    },
+    {
+      "concept_index": 35,
+      "zero_based_column_index": 91,
+      "cub_attribute_id": 92,
+      "attribute_name": "has_upper_tail_color::white"
+    },
+    {
+      "concept_index": 36,
+      "zero_based_column_index": 93,
+      "cub_attribute_id": 94,
+      "attribute_name": "has_upper_tail_color::buff"
+    },
+    {
+      "concept_index": 37,
+      "zero_based_column_index": 99,
+      "cub_attribute_id": 100,
+      "attribute_name": "has_head_pattern::eyebrow"
+    },
+    {
+      "concept_index": 38,
+      "zero_based_column_index": 101,
+      "cub_attribute_id": 102,
+      "attribute_name": "has_head_pattern::plain"
+    },
+    {
+      "concept_index": 39,
+      "zero_based_column_index": 106,
+      "cub_attribute_id": 107,
+      "attribute_name": "has_breast_color::brown"
+    },
+    {
+      "concept_index": 40,
+      "zero_based_column_index": 110,
+      "cub_attribute_id": 111,
+      "attribute_name": "has_breast_color::grey"
+    },
+    {
+      "concept_index": 41,
+      "zero_based_column_index": 111,
+      "cub_attribute_id": 112,
+      "attribute_name": "has_breast_color::yellow"
+    },
+    {
+      "concept_index": 42,
+      "zero_based_column_index": 116,
+      "cub_attribute_id": 117,
+      "attribute_name": "has_breast_color::black"
+    },
+    {
+      "concept_index": 43,
+      "zero_based_column_index": 117,
+      "cub_attribute_id": 118,
+      "attribute_name": "has_breast_color::white"
+    },
+    {
+      "concept_index": 44,
+      "zero_based_column_index": 119,
+      "cub_attribute_id": 120,
+      "attribute_name": "has_breast_color::buff"
+    },
+    {
+      "concept_index": 45,
+      "zero_based_column_index": 125,
+      "cub_attribute_id": 126,
+      "attribute_name": "has_throat_color::grey"
+    },
+    {
+      "concept_index": 46,
+      "zero_based_column_index": 126,
+      "cub_attribute_id": 127,
+      "attribute_name": "has_throat_color::yellow"
+    },
+    {
+      "concept_index": 47,
+      "zero_based_column_index": 131,
+      "cub_attribute_id": 132,
+      "attribute_name": "has_throat_color::black"
+    },
+    {
+      "concept_index": 48,
+      "zero_based_column_index": 132,
+      "cub_attribute_id": 133,
+      "attribute_name": "has_throat_color::white"
+    },
+    {
+      "concept_index": 49,
+      "zero_based_column_index": 134,
+      "cub_attribute_id": 135,
+      "attribute_name": "has_throat_color::buff"
+    },
+    {
+      "concept_index": 50,
+      "zero_based_column_index": 141,
+      "cub_attribute_id": 142,
+      "attribute_name": "has_eye_color::olive"
+    },
+    {
+      "concept_index": 51,
+      "zero_based_column_index": 145,
+      "cub_attribute_id": 146,
+      "attribute_name": "has_eye_color::black"
+    },
+    {
+      "concept_index": 52,
+      "zero_based_column_index": 149,
+      "cub_attribute_id": 150,
+      "attribute_name": "has_bill_length::about_the_same_as_head"
+    },
+    {
+      "concept_index": 53,
+      "zero_based_column_index": 151,
+      "cub_attribute_id": 152,
+      "attribute_name": "has_bill_length::shorter_than_head"
+    },
+    {
+      "concept_index": 54,
+      "zero_based_column_index": 152,
+      "cub_attribute_id": 153,
+      "attribute_name": "has_forehead_color::blue"
+    },
+    {
+      "concept_index": 55,
+      "zero_based_column_index": 153,
+      "cub_attribute_id": 154,
+      "attribute_name": "has_forehead_color::brown"
+    },
+    {
+      "concept_index": 56,
+      "zero_based_column_index": 154,
+      "cub_attribute_id": 155,
+      "attribute_name": "has_forehead_color::iridescent"
+    },
+    {
+      "concept_index": 57,
+      "zero_based_column_index": 155,
+      "cub_attribute_id": 156,
+      "attribute_name": "has_forehead_color::purple"
+    },
+    {
+      "concept_index": 58,
+      "zero_based_column_index": 157,
+      "cub_attribute_id": 158,
+      "attribute_name": "has_forehead_color::grey"
+    },
+    {
+      "concept_index": 59,
+      "zero_based_column_index": 158,
+      "cub_attribute_id": 159,
+      "attribute_name": "has_forehead_color::yellow"
+    },
+    {
+      "concept_index": 60,
+      "zero_based_column_index": 161,
+      "cub_attribute_id": 162,
+      "attribute_name": "has_forehead_color::pink"
+    },
+    {
+      "concept_index": 61,
+      "zero_based_column_index": 164,
+      "cub_attribute_id": 165,
+      "attribute_name": "has_forehead_color::white"
+    },
+    {
+      "concept_index": 62,
+      "zero_based_column_index": 167,
+      "cub_attribute_id": 168,
+      "attribute_name": "has_under_tail_color::blue"
+    },
+    {
+      "concept_index": 63,
+      "zero_based_column_index": 168,
+      "cub_attribute_id": 169,
+      "attribute_name": "has_under_tail_color::brown"
+    },
+    {
+      "concept_index": 64,
+      "zero_based_column_index": 172,
+      "cub_attribute_id": 173,
+      "attribute_name": "has_under_tail_color::grey"
+    },
+    {
+      "concept_index": 65,
+      "zero_based_column_index": 178,
+      "cub_attribute_id": 179,
+      "attribute_name": "has_under_tail_color::black"
+    },
+    {
+      "concept_index": 66,
+      "zero_based_column_index": 179,
+      "cub_attribute_id": 180,
+      "attribute_name": "has_under_tail_color::white"
+    },
+    {
+      "concept_index": 67,
+      "zero_based_column_index": 180,
+      "cub_attribute_id": 181,
+      "attribute_name": "has_under_tail_color::red"
+    },
+    {
+      "concept_index": 68,
+      "zero_based_column_index": 181,
+      "cub_attribute_id": 182,
+      "attribute_name": "has_under_tail_color::buff"
+    },
+    {
+      "concept_index": 69,
+      "zero_based_column_index": 182,
+      "cub_attribute_id": 183,
+      "attribute_name": "has_nape_color::blue"
+    },
+    {
+      "concept_index": 70,
+      "zero_based_column_index": 183,
+      "cub_attribute_id": 184,
+      "attribute_name": "has_nape_color::brown"
+    },
+    {
+      "concept_index": 71,
+      "zero_based_column_index": 184,
+      "cub_attribute_id": 185,
+      "attribute_name": "has_nape_color::iridescent"
+    },
+    {
+      "concept_index": 72,
+      "zero_based_column_index": 188,
+      "cub_attribute_id": 189,
+      "attribute_name": "has_nape_color::yellow"
+    },
+    {
+      "concept_index": 73,
+      "zero_based_column_index": 193,
+      "cub_attribute_id": 194,
+      "attribute_name": "has_nape_color::black"
+    },
+    {
+      "concept_index": 74,
+      "zero_based_column_index": 195,
+      "cub_attribute_id": 196,
+      "attribute_name": "has_nape_color::red"
+    },
+    {
+      "concept_index": 75,
+      "zero_based_column_index": 196,
+      "cub_attribute_id": 197,
+      "attribute_name": "has_nape_color::buff"
+    },
+    {
+      "concept_index": 76,
+      "zero_based_column_index": 198,
+      "cub_attribute_id": 199,
+      "attribute_name": "has_belly_color::brown"
+    },
+    {
+      "concept_index": 77,
+      "zero_based_column_index": 199,
+      "cub_attribute_id": 200,
+      "attribute_name": "has_belly_color::iridescent"
+    },
+    {
+      "concept_index": 78,
+      "zero_based_column_index": 201,
+      "cub_attribute_id": 202,
+      "attribute_name": "has_belly_color::rufous"
+    },
+    {
+      "concept_index": 79,
+      "zero_based_column_index": 202,
+      "cub_attribute_id": 203,
+      "attribute_name": "has_belly_color::grey"
+    },
+    {
+      "concept_index": 80,
+      "zero_based_column_index": 206,
+      "cub_attribute_id": 207,
+      "attribute_name": "has_belly_color::pink"
+    },
+    {
+      "concept_index": 81,
+      "zero_based_column_index": 207,
+      "cub_attribute_id": 208,
+      "attribute_name": "has_belly_color::orange"
+    },
+    {
+      "concept_index": 82,
+      "zero_based_column_index": 208,
+      "cub_attribute_id": 209,
+      "attribute_name": "has_belly_color::black"
+    },
+    {
+      "concept_index": 83,
+      "zero_based_column_index": 211,
+      "cub_attribute_id": 212,
+      "attribute_name": "has_belly_color::buff"
+    },
+    {
+      "concept_index": 84,
+      "zero_based_column_index": 212,
+      "cub_attribute_id": 213,
+      "attribute_name": "has_wing_shape::rounded-wings"
+    },
+    {
+      "concept_index": 85,
+      "zero_based_column_index": 213,
+      "cub_attribute_id": 214,
+      "attribute_name": "has_wing_shape::pointed-wings"
+    },
+    {
+      "concept_index": 86,
+      "zero_based_column_index": 220,
+      "cub_attribute_id": 221,
+      "attribute_name": "has_size::medium_(9_-_16_in)"
+    },
+    {
+      "concept_index": 87,
+      "zero_based_column_index": 221,
+      "cub_attribute_id": 222,
+      "attribute_name": "has_size::very_small_(3_-_5_in)"
+    },
+    {
+      "concept_index": 88,
+      "zero_based_column_index": 225,
+      "cub_attribute_id": 226,
+      "attribute_name": "has_shape::duck-like"
+    },
+    {
+      "concept_index": 89,
+      "zero_based_column_index": 235,
+      "cub_attribute_id": 236,
+      "attribute_name": "has_shape::perching-like"
+    },
+    {
+      "concept_index": 90,
+      "zero_based_column_index": 238,
+      "cub_attribute_id": 239,
+      "attribute_name": "has_back_pattern::striped"
+    },
+    {
+      "concept_index": 91,
+      "zero_based_column_index": 242,
+      "cub_attribute_id": 243,
+      "attribute_name": "has_tail_pattern::striped"
+    },
+    {
+      "concept_index": 92,
+      "zero_based_column_index": 253,
+      "cub_attribute_id": 254,
+      "attribute_name": "has_primary_color::grey"
+    },
+    {
+      "concept_index": 93,
+      "zero_based_column_index": 254,
+      "cub_attribute_id": 255,
+      "attribute_name": "has_primary_color::yellow"
+    },
+    {
+      "concept_index": 94,
+      "zero_based_column_index": 259,
+      "cub_attribute_id": 260,
+      "attribute_name": "has_primary_color::black"
+    },
+    {
+      "concept_index": 95,
+      "zero_based_column_index": 274,
+      "cub_attribute_id": 275,
+      "attribute_name": "has_leg_color::black"
+    },
+    {
+      "concept_index": 96,
+      "zero_based_column_index": 276,
+      "cub_attribute_id": 277,
+      "attribute_name": "has_leg_color::red"
+    },
+    {
+      "concept_index": 97,
+      "zero_based_column_index": 277,
+      "cub_attribute_id": 278,
+      "attribute_name": "has_leg_color::buff"
+    },
+    {
+      "concept_index": 98,
+      "zero_based_column_index": 283,
+      "cub_attribute_id": 284,
+      "attribute_name": "has_bill_color::grey"
+    },
+    {
+      "concept_index": 99,
+      "zero_based_column_index": 289,
+      "cub_attribute_id": 290,
+      "attribute_name": "has_bill_color::black"
+    },
+    {
+      "concept_index": 100,
+      "zero_based_column_index": 292,
+      "cub_attribute_id": 293,
+      "attribute_name": "has_bill_color::buff"
+    },
+    {
+      "concept_index": 101,
+      "zero_based_column_index": 293,
+      "cub_attribute_id": 294,
+      "attribute_name": "has_crown_color::blue"
+    },
+    {
+      "concept_index": 102,
+      "zero_based_column_index": 294,
+      "cub_attribute_id": 295,
+      "attribute_name": "has_crown_color::brown"
+    },
+    {
+      "concept_index": 103,
+      "zero_based_column_index": 298,
+      "cub_attribute_id": 299,
+      "attribute_name": "has_crown_color::grey"
+    },
+    {
+      "concept_index": 104,
+      "zero_based_column_index": 299,
+      "cub_attribute_id": 300,
+      "attribute_name": "has_crown_color::yellow"
+    },
+    {
+      "concept_index": 105,
+      "zero_based_column_index": 302,
+      "cub_attribute_id": 303,
+      "attribute_name": "has_crown_color::pink"
+    },
+    {
+      "concept_index": 106,
+      "zero_based_column_index": 304,
+      "cub_attribute_id": 305,
+      "attribute_name": "has_crown_color::black"
+    },
+    {
+      "concept_index": 107,
+      "zero_based_column_index": 305,
+      "cub_attribute_id": 306,
+      "attribute_name": "has_crown_color::white"
+    },
+    {
+      "concept_index": 108,
+      "zero_based_column_index": 308,
+      "cub_attribute_id": 309,
+      "attribute_name": "has_wing_pattern::solid"
+    },
+    {
+      "concept_index": 109,
+      "zero_based_column_index": 309,
+      "cub_attribute_id": 310,
+      "attribute_name": "has_wing_pattern::spotted"
+    },
+    {
+      "concept_index": 110,
+      "zero_based_column_index": 310,
+      "cub_attribute_id": 311,
+      "attribute_name": "has_wing_pattern::striped"
+    },
+    {
+      "concept_index": 111,
+      "zero_based_column_index": 311,
+      "cub_attribute_id": 312,
+      "attribute_name": "has_wing_pattern::multi-colored"
+    }
+  ]
+}

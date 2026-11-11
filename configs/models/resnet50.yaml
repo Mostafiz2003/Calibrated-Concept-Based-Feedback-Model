@@ -1,0 +1,25 @@
+# ==============================================================================
+# Model Configuration: ResNet-50 Dual-Head Baseline (Experiment ID: E2)
+# ==============================================================================
+
+model:
+  name: "resnet50"
+  experiment_id: "E2"
+  description: "Pretrained ResNet-50 with dual prediction heads (200 species, 112 concepts)"
+  num_classes: 200
+  num_concepts: 112
+  feature_dim: 2048
+  pretrained: true
+  use_cbam: false
+  use_fpn: false
+
+training:
+  batch_size: 32
+  num_epochs: 40
+  backbone_lr: 0.0001
+  head_lr: 0.001
+  weight_decay: 0.0001
+  lambda_species: 1.0
+  lambda_concept: 0.2
+  early_stopping_patience: 10
+

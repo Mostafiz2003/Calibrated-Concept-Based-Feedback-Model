@@ -1,0 +1,23 @@
+# ==============================================================================
+# Model Configuration: ConvNeXt-Tiny Dual-Head (Experiment ID: E6)
+# ==============================================================================
+
+model:
+  name: "convnext_tiny"
+  experiment_id: "E6"
+  description: "Modern ConvNet architecture: ImageNet-pretrained ConvNeXt-Tiny + Dual Heads"
+  num_classes: 200
+  num_concepts: 112
+  feature_dim: 768
+  pretrained: true
+
+training:
+  batch_size: 32
+  num_epochs: 40
+  backbone_lr: 0.0001
+  head_lr: 0.001
+  weight_decay: 0.0001
+  lambda_species: 1.0
+  lambda_concept: 0.2
+  early_stopping_patience: 10
+

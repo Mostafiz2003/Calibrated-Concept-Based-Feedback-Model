@@ -1,0 +1,109 @@
+# ==============================================================================
+# Calibrated Concept-Based Feedback Model (CSE 4385)
+# Default Project Configuration
+# ==============================================================================
+# All values are grounded directly in the course proposal document.
+# Undecided or hardware-dependent training hyperparameters are labeled as placeholders.
+
+project:
+  name: "Calibrated Concept-Based Feedback Model"
+  course: "CSE 4385: AI and Expert System Lab"
+  institution: "Northern University Bangladesh"
+  version: "0.1.0-week1"
+  status: "Week 1: Setup and Documentation Only (No Model Trained Yet)"
+
+reproducibility:
+  # Primary random seed for Week 1 checks
+  seed: 42
+  # Main experiments protocol repeats across three fixed seeds (Proposal Section 5.1)
+  experiment_seeds: [42, 123, 456]
+  deterministic_cudnn: true
+
+data:
+  # Windows-friendly relative path to CUB-200-2011 dataset root directory
+  dataset_root: "data/CUB_200_2011"
+  # Dataset dimensions directly from proposal Section 5.1
+  num_classes: 200              # Total bird species
+  num_total_attributes: 312     # Raw CUB binary attributes
+  num_concepts: 112             # Filtered binary attributes used as concepts
+  total_images: 11788           # Total CUB dataset image count
+  official_train_count: 5994    # Official train split count
+  official_test_count: 5794     # Official test split count (remains locked)
+  # Split proportions for the 5,994 official training images
+  train_split_ratio: 0.80       # Exactly 4,794 images when stratified across 200 species (~4,795 non-stratified)
+  val_split_ratio: 0.10         # Exactly 600 images (3 per species across 200 species)
+  calib_split_ratio: 0.10       # Exactly 600 images (3 per species across 200 species) (~599 non-stratified)
+  image_size: 224               # Standard ImageNet input dimension
+
+model:
+  # Proposal specifies ImageNet-pretrained ResNet-50 with ResNet-18 fallback
+  backbone: "resnet50"
+  fallback_backbone: "resnet18"
+  pretrained: true
+  # Supported CBM training variants (Proposal Section 5.3)
+  cbm_variants:
+    - "independent"
+    - "sequential"
+    - "joint"
+  # Task predictor: linear layer or small MLP mapping 112 concepts to 200 species
+  task_predictor_type: "linear"
+  # Recognition-focused architecture settings (Week 6: ResNet-50 + CBAM + FPN + Dual Heads)
+  recognition_model:
+    experiment_mode: "E4"        # "E2" (ResNet-50), "E3" (+CBAM), "E4" (+CBAM + FPN)
+    use_cbam: true
+    use_fpn: true
+    fpn_channels: 256
+    feature_dim: 2048
+    lambda_concept: 1.0          # Loss weight for concept BCE loss
+    lambda_species: 1.0          # Loss weight for species CrossEntropy loss
+
+training:
+  # NOTE: Configurable placeholders - no training has been performed yet
+  device: "auto"                # "cuda", "cpu", or "auto"
+  batch_size: 32                # Configurable placeholder
+  num_epochs: 40                # Configurable placeholder
+  learning_rate: 0.001          # Configurable placeholder
+  weight_decay: 0.0001          # Configurable placeholder
+  num_workers: 0                # Safe Windows default (avoids multiprocessing deadlocks)
+
+calibration:
+  # Post-hoc calibration using Temperature Scaling on validation split (Proposal Section 4)
+  method: "temperature_scaling"
+  fit_split: "validation"
+  optimization_loss: "nll"      # Negative Log-Likelihood minimization
+  evaluation_metrics:
+    - "ece"                     # Expected Calibration Error
+    - "nll"                     # Negative Log-Likelihood
+  num_ece_bins: 15              # Standard binning count for ECE calculation
+
+conformal:
+  # Distribution-free split conformal prediction (Proposal Section 4 & Section 5.4)
+  method: "split_conformal"
+  calib_split: "calibration"
+  alpha_levels: [0.05, 0.10, 0.20]  # Nominal error rates (Coverage targets: 95%, 90%, 80%)
+  score_function: "one_minus_prob"  # s_j(x, y) = 1 - p_j(x, y)
+  flagging_rule: "non_singleton"    # Flag for human review when prediction set size != 1
+
+intervention:
+  # Policies for selecting concepts to review under equal budget k (Proposal Section 4 & 5.3)
+  policies:
+    - "P1_lowest_calibrated_confidence"
+    - "P2_conformal_flagged"
+    - "P3_random_control"
+  # Concept replacement strategies upon intervention (Proposal Section 4 & 5.3)
+  replacement_strategies:
+    - "S1_direct_binary_probability"
+    - "S2_training_percentile_logit"
+  # Simulated user feedback noise levels epsilon (Proposal Section 5.3)
+  feedback_noise_rates: [0.0, 0.05, 0.10, 0.20]
+  # Configurable intervention budget levels (number of concepts corrected)
+  test_budgets: [1, 2, 5, 10, 15, 20]
+
+paths:
+  # Relative directory paths
+  outputs_dir: "outputs"
+  checkpoints_dir: "outputs/checkpoints"
+  logs_dir: "outputs/logs"
+  figures_dir: "outputs/figures"
+  attribute_mapping_file: "data/selected_concepts_112.json"
+
