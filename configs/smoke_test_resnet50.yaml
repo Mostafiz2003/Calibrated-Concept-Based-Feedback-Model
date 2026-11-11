@@ -1,0 +1,48 @@
+# ==============================================================================
+# Smoke Test Configuration: ResNet-50 Dual-Head 2-Batch Verification
+# ==============================================================================
+# Strict 2-batch execution to verify:
+#   1. GPU compute and CUDA tensor movement
+#   2. Real/staged image decoding and batch tensor shapes ([B, 3, 224, 224])
+#   3. Dual-head output dimensions ([B, 200] and [B, 112])
+#   4. Multi-task loss computation (L_species + 0.2 * L_concept)
+#   5. Gradient finiteness and backward pass under AMP (FP16)
+#   6. Weight update confirmation via optimizer.step()
+#   7. Atomic checkpointing and state restoration into isolated sandbox
+#   8. Peak VRAM utilization and latency telemetry
+# ==============================================================================
+
+smoke_test:
+  enabled: true
+  num_train_batches: 2
+  num_val_batches: 1
+  device: "cuda"
+  require_gpu: true
+  use_amp: true
+
+model:
+  name: "resnet50"
+  experiment_id: "E2_smoke_test"
+  description: "Pretrained ResNet-50 with dual prediction heads (200 species, 112 concepts)"
+  num_classes: 200
+  num_concepts: 112
+  feature_dim: 2048
+  pretrained: true
+  use_cbam: false
+  use_fpn: false
+
+training:
+  batch_size: 16
+  num_epochs: 1
+  backbone_lr: 0.0001
+  head_lr: 0.001
+  weight_decay: 0.0001
+  lambda_species: 1.0
+  lambda_concept: 0.2
+  max_grad_norm: 1.0
+
+paths:
+  manifest_path: "outputs/dataset_manifest.json"
+  concept_mapping_path: "data/selected_concepts_112.json"
+  checkpoint_dir: "outputs/smoke_test/resnet50_smoke_test"
+  output_results_json: "outputs/smoke_test/resnet50_smoke_test_results.json"
